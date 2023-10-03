@@ -54,6 +54,21 @@ const Home = () => {
           Latest
         </button>
       </div>
+
+      <div className="grid grid-cols-4 gap-6">
+        <div>
+          <h2 className="font-semibold text-xl">All Caterogy</h2>
+          <div className="bg-gray-200 py-4 text-center">
+            <h2 className="font-semibold text-xl">National News</h2>
+          </div>
+        </div>
+        <div className="col-span-2">
+          <h2 className="font-semibold text-xl">Dragon News Home</h2>
+        </div>
+        <div>
+          <h2 className="font-semibold text-xl">Login With</h2>
+        </div>
+      </div>
     </div>
   );
 };
