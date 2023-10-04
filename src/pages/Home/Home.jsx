@@ -1,23 +1,20 @@
 import { Link, NavLink } from "react-router-dom";
 import Header from "../shared/Header";
 import Marquee from "react-fast-marquee";
+import UserImg from "../../assets/images/user.png";
+
+import LeftSide from "../shared/LeftSide";
 
 const Home = () => {
   const breakingNews = [
     {
       title: "Global Summit Announced to Address Climate Crisis",
-      description:
-        "World leaders convene for an emergency summit to tackle the escalating climate crisis. Expectations are high for groundbreaking agreements on emissions reduction and environmental preservation.",
     },
     {
       title: "Major Cybersecurity Breach Hits Leading Tech Companies",
-      description:
-        "A sophisticated cyberattack has targeted prominent tech giants, compromising sensitive data and raising concerns over digital security. Experts are working round the clock to contain the breach.",
     },
     {
       title: "New COVID-19 Variant Detected; Health Authorities on High Alert",
-      description:
-        "A novel COVID-19 variant with potential vaccine resistance has emerged, prompting heightened surveillance and vaccine research. Health agencies worldwide are closely monitoring the situation.",
     },
   ];
 
@@ -25,7 +22,7 @@ const Home = () => {
     <div>
       <Header></Header>
 
-      <div className="flex bg-gray-200">
+      <section className="flex bg-gray-200">
         <button className="bg-red-600 hover:bg-red-700 px-6 py-2.5 text-white font-medium text-lg rounded m-4">
           Latest
         </button>
@@ -36,9 +33,9 @@ const Home = () => {
             </Link>
           ))}
         </Marquee>
-      </div>
+      </section>
 
-      <div className="flex items-center justify-center relative">
+      <section className="flex items-center justify-center relative">
         <ul className="flex gap-16 justify-center">
           <li>
             <NavLink to="/">Home</NavLink>
@@ -50,18 +47,17 @@ const Home = () => {
             <NavLink to="/">Career</NavLink>
           </li>
         </ul>
-        <button className="bg-gray-800 hover:bg-gray-700 px-6 py-2.5 text-white font-medium text-lg rounded justify-self-end absolute right-0">
-          Latest
-        </button>
-      </div>
+
+        <div className="flex gap-5 absolute right-0">
+          <img className="h-12" src={UserImg} alt="" />
+          <button className="bg-gray-800 hover:bg-gray-700 px-6 py-2.5 text-white font-medium text-lg rounded justify-self-end ">
+            Latest
+          </button>
+        </div>
+      </section>
 
       <div className="grid grid-cols-4 gap-6">
-        <div>
-          <h2 className="font-semibold text-xl">All Caterogy</h2>
-          <div className="bg-gray-200 py-4 text-center">
-            <h2 className="font-semibold text-xl">National News</h2>
-          </div>
-        </div>
+        <LeftSide></LeftSide>
         <div className="col-span-2">
           <h2 className="font-semibold text-xl">Dragon News Home</h2>
         </div>
