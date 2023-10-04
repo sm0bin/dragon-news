@@ -19,7 +19,7 @@ const LeftSide = () => {
 
   return (
     <aside>
-      <h2 className="font-semibold text-xl">All Category</h2>
+      <h2 className="font-semibold text-xl  mb-5">All Category</h2>
       <div className="bg-gray-200 py-4">
         <h2 className="font-semibold text-xl text-center">National News</h2>
       </div>

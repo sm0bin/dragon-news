@@ -1,9 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
 import Header from "../shared/Header";
 import Marquee from "react-fast-marquee";
-import UserImg from "../../assets/images/user.png";
 
 import LeftSide from "../shared/LeftSide";
+import RightSide from "../shared/RightSide";
+import NewsFeed from "../shared/NewsFeed";
+import Nav from "../shared/Nav";
 
 const Home = () => {
   const breakingNews = [
@@ -35,35 +37,12 @@ const Home = () => {
         </Marquee>
       </section>
 
-      <section className="flex items-center justify-center relative">
-        <ul className="flex gap-16 justify-center">
-          <li>
-            <NavLink to="/">Home</NavLink>
-          </li>
-          <li>
-            <NavLink to="/">About</NavLink>
-          </li>
-          <li>
-            <NavLink to="/">Career</NavLink>
-          </li>
-        </ul>
-
-        <div className="flex gap-5 absolute right-0">
-          <img className="h-12" src={UserImg} alt="" />
-          <button className="bg-gray-800 hover:bg-gray-700 px-6 py-2.5 text-white font-medium text-lg rounded justify-self-end ">
-            Latest
-          </button>
-        </div>
-      </section>
+      <Nav></Nav>
 
       <div className="grid grid-cols-4 gap-6">
         <LeftSide></LeftSide>
-        <div className="col-span-2">
-          <h2 className="font-semibold text-xl">Dragon News Home</h2>
-        </div>
-        <div>
-          <h2 className="font-semibold text-xl">Login With</h2>
-        </div>
+        <NewsFeed></NewsFeed>
+        <RightSide></RightSide>
       </div>
     </div>
   );
