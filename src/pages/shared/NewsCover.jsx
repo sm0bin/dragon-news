@@ -1,15 +1,8 @@
 import { FiBookmark, FiShare2, FiEye } from "react-icons/fi";
+import PropTypes from "prop-types";
 
 const NewsCover = ({ eachNews }) => {
-  const {
-    title,
-    author,
-    rating,
-    total_view,
-    details,
-    thumbnail_url,
-    image_url,
-  } = eachNews;
+  const { title, author, rating, total_view, details, image_url } = eachNews;
 
   return (
     //   Main Card
@@ -53,6 +46,10 @@ const NewsCover = ({ eachNews }) => {
       </div>
     </div>
   );
+};
+
+NewsCover.propTypes = {
+  eachNews: PropTypes.object,
 };
 
 export default NewsCover;
