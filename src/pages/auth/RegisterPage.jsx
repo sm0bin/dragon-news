@@ -1,7 +1,46 @@
 import { Link } from "react-router-dom";
 import Nav from "../shared/Nav";
+import { useContext } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const RegisterPage = () => {
+  const { registerUser, updateUserInfo } = useContext(AuthContext);
+
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    console.log(e.currentTarget);
+    const form = new FormData(e.currentTarget);
+    console.log(form);
+    const name = form.get("name");
+    const photo = form.get("photo");
+    const email = form.get("email");
+    const password = form.get("password");
+
+    console.log(name, photo, email, password);
+
+    registerUser(email, password)
+      .then(result => {
+        console.log(result.user);
+
+      })
+      .catch(error => {
+        console.error(error);
+
+      })
+
+    updateUserInfo(name, photo)
+      .then(result => {
+        console.log(result.user);
+
+      })
+      .catch(error => {
+        console.error(error);
+
+      })
+
+  };
+
   return (
     <div className="mt-12">
       <Nav></Nav>
@@ -10,13 +49,14 @@ const RegisterPage = () => {
           Register your account
         </h1>
         <hr className="my-12" />
-        <form className="card-body p-0 mx-auto">
+        <form onSubmit={handleRegister} className="card-body p-0 mx-auto">
           <div className="form-control">
             <label className="label">
               <span className="label-text">Name</span>
             </label>
             <input
               type="text"
+              name="name"
               placeholder="Your Name"
               className="input input-bordered bg-gray-100"
               required
@@ -28,6 +68,7 @@ const RegisterPage = () => {
             </label>
             <input
               type="text"
+              name="photo"
               placeholder="Your Photo URL"
               className="input input-bordered bg-gray-100"
               required
@@ -39,6 +80,7 @@ const RegisterPage = () => {
             </label>
             <input
               type="email"
+              name="email"
               placeholder="Enter your email address"
               className="input input-bordered bg-gray-100"
               required
@@ -50,6 +92,7 @@ const RegisterPage = () => {
             </label>
             <input
               type="password"
+              name="password"
               placeholder="Enter your password"
               className="input input-bordered bg-gray-100"
               required

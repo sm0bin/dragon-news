@@ -1,7 +1,37 @@
 import { Link } from "react-router-dom";
 import Nav from "../shared/Nav";
+import { useContext } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const LoginPage = () => {
+
+  const { loginUser } = useContext(AuthContext);
+
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    console.log(e.currentTarget);
+    const form = new FormData(e.currentTarget);
+    console.log(form);
+    const email = form.get("email");
+    const password = form.get("password");
+
+    console.log(email, password);
+
+    loginUser(email, password)
+      .then(result => {
+        console.log(result.user);
+
+      })
+      .catch(error => {
+        console.error(error);
+
+      })
+
+
+  };
+
+
   return (
     <div className="mt-12">
       <Nav></Nav>
@@ -10,13 +40,14 @@ const LoginPage = () => {
           Login your account
         </h1>
         <hr className="my-12" />
-        <form className="card-body p-0 mx-auto">
+        <form onSubmit={handleLogin} className="card-body p-0 mx-auto">
           <div className="form-control">
             <label className="label">
               <span className="label-text">Email</span>
             </label>
             <input
               type="email"
+              name="email"
               placeholder="email"
               className="input input-bordered bg-gray-100"
               required
@@ -28,6 +59,7 @@ const LoginPage = () => {
             </label>
             <input
               type="password"
+              name="password"
               placeholder="password"
               className="input input-bordered bg-gray-100"
               required
