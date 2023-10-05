@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Home from "../pages/Home/Home";
 import LoginPage from "../pages/auth/LoginPage";
 import RegisterPage from "../pages/auth/RegisterPage";
+import NewsDetails from "../pages/shared/NewsDetails";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +25,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/news/:id",
-        element: <RegisterPage></RegisterPage>
+        element: <NewsDetails></NewsDetails>,
+        loader: () => fetch("/news.json")
       },
     ],
   },

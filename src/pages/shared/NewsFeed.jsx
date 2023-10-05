@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import NewsCover from "./NewsCover";
 import { useLoaderData } from "react-router-dom";
 
