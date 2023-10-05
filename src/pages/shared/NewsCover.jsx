@@ -1,8 +1,9 @@
 import { FiBookmark, FiShare2, FiEye } from "react-icons/fi";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const NewsCover = ({ eachNews }) => {
-  const { title, author, rating, total_view, details, image_url } = eachNews;
+  const { _id, title, author, rating, total_view, details, image_url } = eachNews;
 
   return (
     //   Main Card
@@ -34,7 +35,16 @@ const NewsCover = ({ eachNews }) => {
       <div className="p-5">
         <h1 className="font-bold text-xl mb-5">{title}</h1>
         <img src={image_url} alt="" />
-        <p className="mt-8">{details}</p>
+        <p className="mt-8">
+          {details.length > 300 ? (
+            <>
+              {details.slice(0, 300)}... <Link className="font-semibold text-rose-500" to={`/news/${_id}`}>Read More</Link>
+            </>
+          ) : (
+            details
+          )}
+        </p>
+
         <hr className="my-5" />
         <div className="flex justify-between">
           <h4>{rating.number}</h4>
@@ -44,7 +54,7 @@ const NewsCover = ({ eachNews }) => {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 

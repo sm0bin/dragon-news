@@ -9,9 +9,23 @@ const router = createBrowserRouter([
     path: "/",
     element: <Root></Root>,
     children: [
-      { path: "/", element: <Home></Home> },
-      { path: "/login", element: <LoginPage></LoginPage> },
-      { path: "/register", element: <RegisterPage></RegisterPage> },
+      {
+        path: "/",
+        element: <Home></Home>,
+        loader: () => fetch("/news.json")
+      },
+      {
+        path: "/login",
+        element: <LoginPage></LoginPage>
+      },
+      {
+        path: "/register",
+        element: <RegisterPage></RegisterPage>
+      },
+      {
+        path: "/news/:id",
+        element: <RegisterPage></RegisterPage>
+      },
     ],
   },
 ]);

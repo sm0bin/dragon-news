@@ -1,13 +1,9 @@
 import { useEffect, useState } from "react";
 import NewsCover from "./NewsCover";
+import { useLoaderData } from "react-router-dom";
 
 const NewsFeed = () => {
-  const [news, setNews] = useState([]);
-  useEffect(() => {
-    fetch("news.json")
-      .then((res) => res.json())
-      .then((data) => setNews(data));
-  }, []);
+  const news = useLoaderData();
 
   return (
     <section className="col-span-2">
