@@ -22,13 +22,14 @@ const LeftSide = ({ handleChooseCategory }) => {
   return (
     <aside>
       <h2 className="font-semibold text-xl  mb-5">All Category</h2>
-      <div className="bg-gray-200 py-4">
-        <h2 className="font-semibold text-xl px-12">National News</h2>
-      </div>
-      <ul className="font-medium text-xl px-12 py-8 space-y-4 text-gray-500">
+
+      <ul className="font-medium text-xl pb-4 text-gray-500">
         {categories.map((category) => (
           <li key={category.id} className="">
-            <button onClick={() => handleChooseCategory(category.id)}>{category.name}</button>
+            {/* <button onClick={() => handleChooseCategory(category.id)}>{category.name}</button> */}
+            <div onClick={() => handleChooseCategory(category.id)} className="cursor-pointer py-4">
+              <h2 className="font-semibold text-xl px-12">{category.name}</h2>
+            </div>
           </li>
         ))}
       </ul>
