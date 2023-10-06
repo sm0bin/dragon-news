@@ -5,6 +5,7 @@ import {
   RiInstagramLine,
 } from "react-icons/ri";
 import Ad from "./Ad";
+import { Link } from "react-router-dom";
 
 const RightSide = () => {
   const qZoneImages = [
@@ -29,24 +30,24 @@ const RightSide = () => {
       <h2 className="font-semibold text-xl">Find Us On</h2>
 
       <div className="border rounded">
-        <div className="font-medium p-4 border-b flex items-center gap-2.5">
+        <Link to="#" className="font-medium p-4 border-b flex items-center gap-2.5">
           <div className="w-8 h-8 rounded-full bg-gray-200 p-2">
             <RiFacebookFill className="m-auto text-gray-500" />
           </div>{" "}
           Facebook
-        </div>
-        <div className="font-medium p-4 border-b flex items-center gap-2.5">
+        </Link>
+        <Link to="#" className="font-medium p-4 border-b flex items-center gap-2.5">
           <div className="w-8 h-8 rounded-full bg-gray-200 p-2">
             <RiTwitterXFill className="m-auto text-gray-500" />
           </div>{" "}
           Twitter
-        </div>
-        <div className="font-medium p-4  flex items-center gap-2.5">
+        </Link>
+        <Link to="#" className="font-medium p-4  flex items-center gap-2.5">
           <div className="w-8 h-8 rounded-full bg-gray-200 p-2">
             <RiInstagramLine className="m-auto text-gray-500" />
           </div>{" "}
           Instagram
-        </div>
+        </Link>
       </div>
 
       <div className="bg-gray-200 space-y-5 p-4 rounded">

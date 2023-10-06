@@ -18,9 +18,19 @@ const Nav = () => {
       <li>
         <NavLink to="/career">Career</NavLink>
       </li>
-      <li>
-        <NavLink to="/login">Login</NavLink>
-      </li>
+      {user ?
+        (
+          <li>
+            <NavLink to="/profile">Profile</NavLink>
+          </li>
+        ) : (
+          <li>
+            <NavLink to="/login">Login</NavLink>
+          </li>
+        )
+      }
+
+
     </>
 
   const navigate = useNavigate();
