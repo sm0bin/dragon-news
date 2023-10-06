@@ -47,10 +47,24 @@ const NewsCover = ({ eachNews }) => {
 
         <hr className="my-5" />
         <div className="flex justify-between">
-          <h4>{rating.number}</h4>
+          <div className="flex items-center gap-4">
+            <div className="rating rating-md rating-half">
+              <input type="radio" name="rating-10" className="mask mask-star-2 mask-half-1 bg-orange-400" />
+              <input type="radio" name="rating-10" className="mask mask-star-2 mask-half-2 bg-orange-400" />
+              <input type="radio" name="rating-10" className="mask mask-star-2 mask-half-1 bg-orange-400" />
+              <input type="radio" name="rating-10" className="mask mask-star-2 mask-half-2 bg-orange-400" />
+              <input type="radio" name="rating-10" className="mask mask-star-2 mask-half-1 bg-orange-400" />
+              <input type="radio" name="rating-10" className="mask mask-star-2 mask-half-2 bg-orange-400" />
+              <input type="radio" name="rating-10" className="mask mask-star-2 mask-half-1 bg-orange-400" />
+              <input type="radio" name="rating-10" className="mask mask-star-2 mask-half-2 bg-orange-400" />
+              <input type="radio" name="rating-10" className="mask mask-star-2 mask-half-1 bg-orange-400" />
+              <input type="radio" name="rating-10" className="mask mask-star-2 mask-half-2 bg-orange-400" />
+            </div>
+            <h4 className="font-medium text-lg">{rating.number}</h4>
+          </div>
           <div className="flex items-center gap-2">
             <FiEye />
-            <h4>{total_view}</h4>
+            <h4 className="font-medium text-lg">{total_view}</h4>
           </div>
         </div>
       </div>

@@ -34,9 +34,9 @@ const LeftSide = () => {
         {news.slice(0, 4).map((item) => (
           <div key={item["_id"]} className="space-y-4">
             <img className="w-full" src={item["image_url"]} alt="" />
-            <h2>{item.title}</h2>
+            <h2 className="font-semibold text-xl">{item.title}</h2>
             <div className="flex justify-between">
-              <h3>
+              <h3 className="font-medium">
                 {
                   categories.find(
                     (category) => category.id === item["category_id"]
