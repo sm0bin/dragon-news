@@ -5,6 +5,7 @@ import LoginPage from "../pages/auth/LoginPage";
 import RegisterPage from "../pages/auth/RegisterPage";
 import NewsDetails from "../pages/shared/NewsDetails";
 import PrivateRoute from "./PrivateRoute";
+import NewsFeed from "../pages/shared/NewsFeed";
 
 const router = createBrowserRouter([
   {
@@ -14,7 +15,18 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("/news.json")
+        children: [
+          {
+            path: "/",
+            element: <NewsFeed></NewsFeed>,
+            loader: () => fetch("/news.json"),
+          },
+          {
+            path: "/category/:id",
+            element: <NewsFeed></NewsFeed>,
+            loader: () => fetch("/news.json"),
+          }
+        ]
       },
       {
         path: "/login",

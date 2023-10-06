@@ -1,17 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import Header from "../shared/Header";
 import Marquee from "react-fast-marquee";
 
 import LeftSide from "../shared/LeftSide/LeftSide";
 import RightSide from "../shared/RightSide";
-import NewsFeed from "../shared/NewsFeed";
 import Nav from "../shared/Nav";
-import { useState } from "react";
 
 
 const Home = () => {
-  const [categoryId, setCategoryId] = useState(0);
-
   const breakingNews = [
     {
       title: "Global Summit Announced to Address Climate Crisis",
@@ -24,10 +20,6 @@ const Home = () => {
     },
   ];
 
-  const handleChooseCategory = (id) => {
-    setCategoryId(id);
-
-  }
 
   return (
     <div>
@@ -49,8 +41,9 @@ const Home = () => {
       <Nav></Nav>
 
       <div className="grid grid-cols-4 gap-6">
-        <LeftSide handleChooseCategory={handleChooseCategory}></LeftSide>
-        <NewsFeed categoryId={categoryId}></NewsFeed>
+        <LeftSide></LeftSide>
+        {/* <NewsFeed categoryId={categoryId}></NewsFeed> */}
+        <Outlet></Outlet>
         <RightSide></RightSide>
       </div>
     </div>

@@ -5,17 +5,17 @@ import { NavLink } from "react-router-dom";
 import { FiCalendar } from "react-icons/fi";
 import "./LeftSide.css";
 
-const LeftSide = ({ handleChooseCategory }) => {
+const LeftSide = () => {
   const [categories, setCategories] = useState([]);
   const [news, setNews] = useState([]);
 
   useEffect(() => {
-    fetch("categories.json")
+    fetch("/categories.json")
       .then((res) => res.json())
       .then((data) => setCategories(data));
   }, []);
   useEffect(() => {
-    fetch("news.json")
+    fetch("/news.json")
       .then((res) => res.json())
       .then((data) => setNews(data));
   }, []);
@@ -33,10 +33,14 @@ const LeftSide = ({ handleChooseCategory }) => {
           </li>
         ))}
       </ul> */}
-      <ul className="font-medium text-xl px-12 py-8 space-y-4 text-gray-500">
+      <ul className="font-medium text-xl pb-4 text-gray-500">
         {categories.map((category) => (
           <li key={category.id} className="">
-            <NavLink to={`/category/${category.id}`}>{category.name}</NavLink>
+            <NavLink to={`/category/${category.id}`}>
+              <div className="py-4">
+                <h2 className="font-semibold text-xl px-12">{category.name}</h2>
+              </div>
+            </NavLink>
           </li>
         ))}
       </ul>
@@ -65,9 +69,5 @@ const LeftSide = ({ handleChooseCategory }) => {
     </aside>
   );
 };
-
-LeftSide.propTypes = {
-  handleChooseCategory: PropTypes.func,
-}
 
 export default LeftSide;

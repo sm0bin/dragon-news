@@ -1,3 +1,5 @@
-.active {
-    background-color: gray;
+.active div {
+    background-color: #e5e7eb;
+    color: #374151;
+    font-weight: 600;
 }

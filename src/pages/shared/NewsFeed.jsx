@@ -1,12 +1,16 @@
 import { useState } from "react";
 import NewsCover from "./NewsCover";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import PropTypes from 'prop-types';
 
-const NewsFeed = ({ categoryId }) => {
+const NewsFeed = () => {
   const news = useLoaderData();
   const [displayNews, setDisplayNews] = useState(news);
+  const { id } = useParams();
+  console.log(id);
+
+  const categoryId = id;
 
   useEffect(() => {
     const categoryNews = news.filter((eachNews) => (
@@ -14,6 +18,8 @@ const NewsFeed = ({ categoryId }) => {
     ));
     if (categoryNews.length > 0) {
       setDisplayNews(categoryNews);
+    } else {
+      setDisplayNews(news);
     }
 
 
