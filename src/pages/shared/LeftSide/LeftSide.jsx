@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { FiCalendar } from "react-icons/fi";
+import "./LeftSide.css";
 
 const LeftSide = ({ handleChooseCategory }) => {
   const [categories, setCategories] = useState([]);
@@ -22,13 +23,20 @@ const LeftSide = ({ handleChooseCategory }) => {
   return (
     <aside>
       <h2 className="font-semibold text-xl  mb-5">All Category</h2>
-      <div className="bg-gray-200 py-4">
+      {/* <div className="bg-gray-200 py-4">
         <h2 className="font-semibold text-xl px-12">National News</h2>
       </div>
       <ul className="font-medium text-xl px-12 py-8 space-y-4 text-gray-500">
         {categories.map((category) => (
           <li key={category.id} className="">
             <button onClick={() => handleChooseCategory(category.id)}>{category.name}</button>
+          </li>
+        ))}
+      </ul> */}
+      <ul className="font-medium text-xl px-12 py-8 space-y-4 text-gray-500">
+        {categories.map((category) => (
+          <li key={category.id} className="">
+            <NavLink to={`/category/${category.id}`}>{category.name}</NavLink>
           </li>
         ))}
       </ul>

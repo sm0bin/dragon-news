@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Header from "../shared/Header";
 import Marquee from "react-fast-marquee";
 
-import LeftSide from "../shared/LeftSide";
+import LeftSide from "../shared/LeftSide/LeftSide";
 import RightSide from "../shared/RightSide";
 import NewsFeed from "../shared/NewsFeed";
 import Nav from "../shared/Nav";
