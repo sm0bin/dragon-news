@@ -1,8 +1,10 @@
+import PropTypes from 'prop-types';
+
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { FiCalendar } from "react-icons/fi";
 
-const LeftSide = () => {
+const LeftSide = ({ handleChooseCategory }) => {
   const [categories, setCategories] = useState([]);
   const [news, setNews] = useState([]);
 
@@ -21,12 +23,12 @@ const LeftSide = () => {
     <aside>
       <h2 className="font-semibold text-xl  mb-5">All Category</h2>
       <div className="bg-gray-200 py-4">
-        <h2 className="font-semibold text-xl text-center">National News</h2>
+        <h2 className="font-semibold text-xl px-12">National News</h2>
       </div>
       <ul className="font-medium text-xl px-12 py-8 space-y-4 text-gray-500">
         {categories.map((category) => (
           <li key={category.id} className="">
-            <NavLink to="#">{category.name}</NavLink>
+            <button onClick={() => handleChooseCategory(category.id)}>{category.name}</button>
           </li>
         ))}
       </ul>
@@ -55,5 +57,9 @@ const LeftSide = () => {
     </aside>
   );
 };
+
+LeftSide.propTypes = {
+  handleChooseCategory: PropTypes.func,
+}
 
 export default LeftSide;

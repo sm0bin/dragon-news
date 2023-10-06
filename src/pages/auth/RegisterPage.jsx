@@ -22,6 +22,15 @@ const RegisterPage = () => {
     registerUser(email, password)
       .then(result => {
         console.log(result.user);
+        updateUserInfo(name, photo)
+          .then(result => {
+            console.log(result.user);
+
+          })
+          .catch(error => {
+            console.error(error);
+
+          })
 
       })
       .catch(error => {
@@ -29,15 +38,6 @@ const RegisterPage = () => {
 
       })
 
-    updateUserInfo(name, photo)
-      .then(result => {
-        console.log(result.user);
-
-      })
-      .catch(error => {
-        console.error(error);
-
-      })
 
   };
 

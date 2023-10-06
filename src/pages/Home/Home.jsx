@@ -6,8 +6,12 @@ import LeftSide from "../shared/LeftSide";
 import RightSide from "../shared/RightSide";
 import NewsFeed from "../shared/NewsFeed";
 import Nav from "../shared/Nav";
+import { useState } from "react";
+
 
 const Home = () => {
+  const [categoryId, setCategoryId] = useState(0);
+
   const breakingNews = [
     {
       title: "Global Summit Announced to Address Climate Crisis",
@@ -19,6 +23,11 @@ const Home = () => {
       title: "New COVID-19 Variant Detected; Health Authorities on High Alert",
     },
   ];
+
+  const handleChooseCategory = (id) => {
+    setCategoryId(id);
+
+  }
 
   return (
     <div>
@@ -40,8 +49,8 @@ const Home = () => {
       <Nav></Nav>
 
       <div className="grid grid-cols-4 gap-6">
-        <LeftSide></LeftSide>
-        <NewsFeed></NewsFeed>
+        <LeftSide handleChooseCategory={handleChooseCategory}></LeftSide>
+        <NewsFeed categoryId={categoryId}></NewsFeed>
         <RightSide></RightSide>
       </div>
     </div>

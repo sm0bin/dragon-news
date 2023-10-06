@@ -6,19 +6,32 @@ import {
 } from "react-icons/ri";
 import Ad from "./Ad";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const RightSide = () => {
+  const { loginWithGoogle } = useContext(AuthContext);
   const qZoneImages = [
     "../../../src/assets/images/qZone1.png",
     "../../../src/assets/images/qZone2.png",
     "../../../src/assets/images/qZone3.png",
   ];
 
+
+  const handleGoogleLogin = () => {
+    loginWithGoogle()
+      .then(result =>
+        console.log(result.user)
+      )
+      .catch(error =>
+        console.error(error)
+      )
+  }
   return (
     <aside className="space-y-5">
       <h2 className="font-semibold text-xl mb-5">Login With</h2>
       <div>
-        <button className="btn btn-outline w-full mb-2 normal-case">
+        <button onClick={handleGoogleLogin} className="btn btn-outline w-full mb-2 normal-case">
           <AiOutlineGoogle className="text-2xl" />
           Login with Google
         </button>
